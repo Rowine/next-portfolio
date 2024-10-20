@@ -43,7 +43,7 @@ export default function Home() {
             borderRadius="full"
             objectFit="cover"
             objectPosition="center"
-            src="/images/rowine.jpg"
+            src="/images/rowine.jpeg"
             alt="Profile Image"
           />
         </Box>
