@@ -34,7 +34,7 @@ export default function Home() {
           <Heading as="h2" variant="page-title">
             Rowine Mabiog
           </Heading>
-          <p>Javascript / React / Python Developer</p>
+          <p>Full Stack Javascript Developer</p>
         </Box>
         <Box
           flexShrink={0}

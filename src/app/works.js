@@ -3,7 +3,7 @@ import { WorkGridItem } from '@/components/grid-item';
 import Section from '@/components/section';
 
 import thumbOrganik from '../../public/works/organik.png';
-import thumbLinkedIn from '../../public/works/image.png';
+import thumbSlack from '../../public/works/slack_clone.png';
 
 const Works = () => {
   return (
@@ -13,20 +13,21 @@ const Works = () => {
       </Heading>
       <Section>
         <SimpleGrid>
-          <WorkGridItem id="organik" title="Organik" thumbnail={thumbOrganik}>
+          <WorkGridItem
+            href="https://organik.vercel.app"
+            title="Organik"
+            thumbnail={thumbOrganik}
+            isDown={false}
+          >
             An e-commerce website made using React.js, Node.js, Express, and
             MongoDB
           </WorkGridItem>
         </SimpleGrid>
       </Section>
       <Section>
-        <WorkGridItem
-          id="linked_in_scraper"
-          title="Linked In Scraper"
-          thumbnail={thumbLinkedIn}
-        >
-          A Python Script file running on terminal built with Selenium and
-          Pandas to extract data from LinkedIn profiles and company pages.
+        <WorkGridItem title="Slack clone" thumbnail={thumbSlack} isDown={true}>
+          A Slack application clone made using Next.js, Jotai, TailwindCSS,
+          Socket.IO and Convex.
         </WorkGridItem>
       </Section>
     </>

@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Box, Text, LinkBox, LinkOverlay } from '@chakra-ui/react';
+import { Box, Text, LinkBox, LinkOverlay, Badge } from '@chakra-ui/react';
 import { Global } from '@emotion/react';
 import Link from 'next/link';
 
@@ -21,24 +21,46 @@ export const GridItem = ({ children, href, title, thumbnail }) => (
   </Box>
 );
 
-export const WorkGridItem = ({ children, id, title, thumbnail }) => (
+export const WorkGridItem = ({ children, href, title, thumbnail, isDown }) => (
   <Box w="100%" align="center">
-    <Link href={`/works/${id}`}>
-      <LinkBox cursor="pointer">
+    {isDown ? (
+      <>
         <Image
           src={thumbnail}
           alt={title}
           className="grid-item-thumbnail"
           placeholder="blur"
         />
-        <LinkOverlay href={`/works/${id}`}>
+        <Box>
           <Text mt={2} fontSize={20}>
             {title}
+            <p>
+              <Badge vairant="outline" colorScheme="purple">
+                Currently down
+              </Badge>
+            </p>
           </Text>
-        </LinkOverlay>
+        </Box>
         <Text fontSize={14}>{children}</Text>
-      </LinkBox>
-    </Link>
+      </>
+    ) : (
+      <Link href={href} target="_blank">
+        <LinkBox cursor={isDown ? '' : 'pointer'}>
+          <Image
+            src={thumbnail}
+            alt={title}
+            className="grid-item-thumbnail"
+            placeholder="blur"
+          />
+          <LinkOverlay href={href} target="_blank">
+            <Text mt={2} fontSize={20}>
+              {title}
+            </Text>
+          </LinkOverlay>
+          <Text fontSize={14}>{children}</Text>
+        </LinkBox>
+      </Link>
+    )}
   </Box>
 );
 

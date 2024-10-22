@@ -1,10 +1,10 @@
 'use client';
 
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { Box, Spinner } from '@chakra-ui/react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { loadGLTFModel } from '@/libs/model';
+import { CoffeeContainer, CoffeeSpinner } from './voxel-coffee-loader';
 
 function easeOutCirc(x) {
   return Math.sqrt(1 - Math.pow(x - 1, 4));
@@ -15,7 +15,7 @@ const VoxelCoffee = () => {
   const [loading, setLoading] = useState(true);
   const [renderer, setRenderer] = useState();
   const [_camera, setCamera] = useState();
-  const [target] = useState(new THREE.Vector3(-0.5, 1.2, 0));
+  const [target] = useState(new THREE.Vector3(0, 6.5, 0));
   const [initialCameraPosition] = useState(
     new THREE.Vector3(
       20 * Math.sin(0.2 * Math.PI),
@@ -56,7 +56,7 @@ const VoxelCoffee = () => {
 
       // 640 -> 240
       // 8   -> 6
-      const scale = scH * 0.02 + 4.8;
+      const scale = scH * 0.01 + 4.8;
       const camera = new THREE.OrthographicCamera(
         -scale,
         scale,
@@ -124,26 +124,9 @@ const VoxelCoffee = () => {
   }, [renderer, handleWidowResize]);
 
   return (
-    <Box
-      ref={refContainer}
-      className="voxel-coffee"
-      m="auto"
-      mb={['-40px', '-140px', '-200px']}
-      w={[280, 480, 640]}
-      h={[280, 480, 640]}
-      position="relative"
-    >
-      {loading && (
-        <Spinner
-          size="xl"
-          position="absolute"
-          top="50%"
-          left="50%"
-          ml="calc(0px-var(--spinner-size)/2)"
-          mt="calc(0px - var(--spinner-size))"
-        />
-      )}
-    </Box>
+    <CoffeeContainer ref={refContainer}>
+      {loading && <CoffeeSpinner />}
+    </CoffeeContainer>
   );
 };
 
