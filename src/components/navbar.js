@@ -90,13 +90,13 @@ const Navbar = props => {
               />
               <MenuList>
                 <Link href="/">
-                  <MenuItem as={Link}>About</MenuItem>
+                  <MenuItem>About</MenuItem>
                 </Link>
                 <Link href="/works">
-                  <MenuItem as={Link}>Works</MenuItem>
+                  <MenuItem>Works</MenuItem>
                 </Link>
                 <Link href="/posts">
-                  <MenuItem as={Link}>Posts</MenuItem>
+                  <MenuItem>Posts</MenuItem>
                 </Link>
               </MenuList>
             </Menu>
