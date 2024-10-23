@@ -4,6 +4,7 @@ import Section from '@/components/section';
 
 import thumbOrganik from '../../public/works/organik.png';
 import thumbSlack from '../../public/works/slack_clone.png';
+import thumbLeaveManagement from '../../public/works/leave_management.png';
 
 const Works = () => {
   return (
@@ -23,6 +24,16 @@ const Works = () => {
             MongoDB
           </WorkGridItem>
         </SimpleGrid>
+      </Section>
+      <Section>
+        <WorkGridItem
+          href="https://leave-management-system-livid.vercel.app/"
+          title="Leave Management System"
+          thumbnail={thumbLeaveManagement}
+        >
+          A leave management system made using React.js, Node.js, Express, and
+          MongoDB.
+        </WorkGridItem>
       </Section>
       <Section>
         <WorkGridItem title="Slack clone" thumbnail={thumbSlack} isDown={true}>
